@@ -13,7 +13,7 @@ public class Main {
             System.out.println("HashTable Operations:");
             System.out.println("1. Insert ");
             System.out.println("2. Remove");
-            System.out.println("3. Clear");
+            System.out.println("3. Make it empty:");
             System.out.println("4. Size");
             System.out.println("5. Check empty");
             System.out.println("6. Contains");
@@ -27,6 +27,9 @@ public class Main {
                 case 2:
                     System.out.print("Enter what remove: ");
                     hashTable.remove(scan.next());
+                    break;
+                case 3:
+                    hashTable.makeEmpty();
                     break;
             }
             hashTable.print();

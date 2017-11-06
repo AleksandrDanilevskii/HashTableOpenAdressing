@@ -52,4 +52,9 @@ public class HashTable {
             }
         }
     }
+
+    public void makeEmpty() {
+        int l = table.length;
+        table = new Item[l];
+    }
 }
