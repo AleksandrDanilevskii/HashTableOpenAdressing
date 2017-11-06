@@ -11,13 +11,14 @@ public class Main {
         int choice;
         do {
             System.out.println("HashTable Operations:");
-            System.out.println("1. Insert ");
-            System.out.println("2. Remove");
-            System.out.println("3. Make it empty:");
+            System.out.println("1. Insert;");
+            System.out.println("2. Remove;");
+            System.out.println("3. Make it empty;");
             System.out.println("Size????");
-            System.out.println("4. Check empty");
-            System.out.println("6. Contains");
-            System.out.println("0. Stop");
+            System.out.println("4. Check empty;");
+            System.out.println("5. Search;");
+            System.out.println("6. Print;");
+            System.out.println("0. Stop.");
 
             choice = scan.nextInt();
             if (choice!=0) {
@@ -39,8 +40,14 @@ public class Main {
                     case 4:
                         hashTable.isEmpty();
                         break;
+                    case 5:
+                        System.out.print("Enter what find: ");
+                        hashTable.search(scan.next());
+                        break;
+                    case 6:
+                        hashTable.print();
                 }
-                hashTable.print();
+
             }
         }while(choice!=0);
     }

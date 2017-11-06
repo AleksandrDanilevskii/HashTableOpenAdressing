@@ -71,4 +71,18 @@ public class HashTable {
         else
             System.out.println("HashTable is not empty.");
     }
+
+    public void search(String val)
+    {
+        int h = hash(val);
+        for(int i=h; i<size; i++) {
+            String str = table[i].getKey();
+            if (str.equals(val)) {
+                System.out.println("Element in.");
+                break;
+            }
+            System.out.println("Element not found");
+            return;
+        }
+    }
 }
