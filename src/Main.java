@@ -10,22 +10,22 @@ public class Main {
 
         char ch;
         do {
-            System.out.println("Hash Table Operations:");
-            System.out.println("1. insert ");
-            System.out.println("2. remove");
-            System.out.println("3. clear");
-            System.out.println("4. size");
-            System.out.println("5. check empty");
-            System.out.println("6. contains");
+            System.out.println("HashTable Operations:");
+            System.out.println("1. Insert ");
+            System.out.println("2. Remove");
+            System.out.println("3. Clear");
+            System.out.println("4. Size");
+            System.out.println("5. Check empty");
+            System.out.println("6. Contains");
 
             int choice = scan.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Enter what insert");
+                    System.out.print("Enter what insert: ");
                     hashTable.insert(scan.next());
                     break;
                 case 2:
-                    System.out.println("Enter what remove");
+                    System.out.print("Enter what remove: ");
                     hashTable.remove(scan.next());
                     break;
             }

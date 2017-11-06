@@ -18,9 +18,16 @@ public class HashTable {
     }
 
     public void print() {
-        for(int i = 0; i < size; i++)
-            if(table[i] != null)
+        System.out.println("HashTable output:");
+        boolean flag = true;
+        for(int i = 0; i < size; i++) {
+            if (table[i] != null) {
                 System.out.println(i + " " + table[i].getKey());
+                flag = false;
+            }
+        }
+        if(flag)
+            System.out.println("HashTable is empty.");
     }
 
     public void insert(String key) {
