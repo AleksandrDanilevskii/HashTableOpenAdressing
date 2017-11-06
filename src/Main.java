@@ -25,6 +25,7 @@ public class Main {
                     hashTable.insert(scan.next());
                     break;
             }
+            hashTable.print();
 
             System.out.println("Type c to continue or s to stop");
             ch = scan.next().charAt(0);
