@@ -18,6 +18,15 @@ public class Main {
             System.out.println("5. check empty");
             System.out.println("6. contains");
 
+            int choice = scan.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter what insert");
+                    hashTable.insert(scan.next());
+                    break;
+            }
+
+            System.out.println("Type c to continue or s to stop");
             ch = scan.next().charAt(0);
         } while (ch == 'c');
     }
