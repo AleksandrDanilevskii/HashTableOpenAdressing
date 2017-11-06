@@ -1,6 +1,5 @@
-//элемент таблицы
 class Item{
-    private String key; //ключ-строка
+    private String key;
     Item next;
 
     public Item(String key) {
