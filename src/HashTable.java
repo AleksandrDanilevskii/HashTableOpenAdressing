@@ -23,8 +23,7 @@ public class HashTable {
                 System.out.println(i + " " + table[i].getKey());
     }
 
-    public void insert(String key)
-    {
+    public void insert(String key) {
         if(size==0){size++;}
         Item item = new Item(key);
         int hash = hash(key);
@@ -34,5 +33,16 @@ public class HashTable {
             hash %= size;
         }
         table[hash] = item;
+    }
+
+    public void remove(String val){
+        int h = hash(val);
+        for(int i=h; i<size; i++){
+            String str = table[i].getKey();
+            if (str.equals(val)){
+                table[i] = null;
+                break;
+            }
+        }
     }
 }

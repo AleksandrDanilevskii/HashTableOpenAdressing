@@ -24,6 +24,10 @@ public class Main {
                     System.out.println("Enter what insert");
                     hashTable.insert(scan.next());
                     break;
+                case 2:
+                    System.out.println("Enter what remove");
+                    hashTable.remove(scan.next());
+                    break;
             }
             hashTable.print();
 
