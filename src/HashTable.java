@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HashTable {
@@ -60,20 +61,25 @@ public class HashTable {
         for (Item node : old) {
             insert(node.getKey());
         }
-
     }
 
-    public void remove(String val) {
+    public void remove(String val) throws IOException {
         int h = hash(val);
-        for (int i = h; i < size; i++) {
-            String str = table[i].getKey();
-            if (str.equals(val)) {
-                table[i] = null;
-                counte--;
-                break;
+        try {
+            for (int i = h; i < size; i++) {
+                String str = table[i].getKey();
+                if (str.equals(val)) {
+                    table[i] = null;
+                    counte--;
+                    break;
+                }
             }
+        } catch (NullPointerException e) {
+            System.out.println("Item not found!");
+            selectMenu();
         }
     }
+
 
     public void makeEmpty() {
         int l = table.length;
@@ -103,11 +109,10 @@ public class HashTable {
                 break;
             }
             System.out.println("Element not found");
-            return;
         }
     }
 
-    public void size() {
+    public void sizeTable() {
         System.out.println("Size = " + size);
     }
 
@@ -117,8 +122,7 @@ public class HashTable {
         try {
             System.out.print("Enter size: ");
             size = scan.nextInt();
-
-            if(size <= 0){
+            if (size <= 0) {
                 try {
                     throw new Exception();
                 } catch (Exception e) {
@@ -126,8 +130,7 @@ public class HashTable {
                     return inputSize();
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("You have entered invalid characters! Re-enter: ");
             return inputSize();
         }
@@ -149,7 +152,6 @@ public class HashTable {
             System.out.println("0. Stop.");
 
             choice = inputCase();
-
             if (choice != 0) {
                 switch (choice) {
                     case 1:
@@ -172,8 +174,10 @@ public class HashTable {
                         break;
                     case 6:
                         print();
+                        break;
                     case 7:
-                        size();
+                        sizeTable();
+                        break;
                 }
             }
         } while (choice != 0);
@@ -185,11 +189,16 @@ public class HashTable {
         int choice;
         try {
             choice = scan.nextInt();
-        } catch (NumberFormatException e) {
+            if (choice < 0) {
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    System.out.println("You entered a non-positive number! Re-enter: ");
+                    return inputCase();
+                }
+            }
+        } catch (InputMismatchException e) {
             System.out.println("You have entered invalid characters! Re-enter:");
-            return inputCase();
-        } catch (Exception e) {
-            System.out.println("You entered non-positive numbers! Re-enter:");
             return inputCase();
         }
         return choice;

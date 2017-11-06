@@ -2,22 +2,19 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        int size=0;
-        try {
-            size = HashTable.inputSize();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        int size = HashTable.inputSize();
 
         HashTable hashTable = new HashTable(size);
 
-        try {
+        //try {
             hashTable.selectMenu();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        /*} catch (NullPointerException e){
+            System.out.println("Item not found!");
+            hashTable.selectMenu();
+        }*/
 
     }
+
 }
