@@ -14,10 +14,10 @@ public class Main {
             System.out.println("1. Insert;");
             System.out.println("2. Remove;");
             System.out.println("3. Make it empty;");
-            System.out.println("Size????");
             System.out.println("4. Check empty;");
             System.out.println("5. Search;");
             System.out.println("6. Print;");
+            System.out.println("7. Size;");
             System.out.println("0. Stop.");
 
             choice = scan.nextInt();
@@ -34,9 +34,6 @@ public class Main {
                     case 3:
                         hashTable.makeEmpty();
                         break;
-                    /*case 4:
-                        System.out.println("Size = " + hashTable.getSize());
-                        break;*/
                     case 4:
                         hashTable.isEmpty();
                         break;
@@ -46,6 +43,8 @@ public class Main {
                         break;
                     case 6:
                         hashTable.print();
+                    case 7:
+                        hashTable.size();
                 }
 
             }

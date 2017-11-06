@@ -1,13 +1,14 @@
-public class HashTable {
 
+public class HashTable {
     private int size;
     private Item[] table;
+    private int counte;
 
     private int hash(String key) {
+        System.out.println(size);
         int hash = 0;
         for(int i = 0; i < key.length(); i++) {
-            hash = (127 * hash + key.charAt(i)) % size;
-
+            hash = (31 * hash + key.charAt(i)) % size;
         }
         return hash;
     }
@@ -32,14 +33,32 @@ public class HashTable {
 
     public void insert(String key) {
         if(size==0){size++;}
-        Item item = new Item(key);
-        int hash = hash(key);
-        while(table[hash] != null)
-        {
-            hash++;
-            hash %= size;
+        if(counte<size) {
+            Item item = new Item(key);
+            int hash = hash(key);
+            while (table[hash] != null) {
+                hash++;
+                hash %= size;
+            }
+            table[hash] = item;
+            counte++;
         }
-        table[hash] = item;
+        else{
+            rehash();
+            insert(key);
+        }
+    }
+
+    public void rehash() {
+        this.size = 2*table.length;
+        Item[] newElements = new Item[this.size];
+        Item[] old = table;
+        table = newElements;
+        counte =0;
+        for (Item node : old){
+                insert(node.getKey());
+        }
+
     }
 
     public void remove(String val){
@@ -48,6 +67,7 @@ public class HashTable {
             String str = table[i].getKey();
             if (str.equals(val)){
                 table[i] = null;
+                counte--;
                 break;
             }
         }
@@ -72,8 +92,7 @@ public class HashTable {
             System.out.println("HashTable is not empty.");
     }
 
-    public void search(String val)
-    {
+    public void search(String val) {
         int h = hash(val);
         for(int i=h; i<size; i++) {
             String str = table[i].getKey();
@@ -84,5 +103,9 @@ public class HashTable {
             System.out.println("Element not found");
             return;
         }
+    }
+
+    public void size() {
+        System.out.println("Size = "+size);
     }
 }
