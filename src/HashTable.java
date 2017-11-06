@@ -57,4 +57,18 @@ public class HashTable {
         int l = table.length;
         table = new Item[l];
     }
+
+    public void isEmpty() {
+        boolean flag = true;
+        for(int i = 0; i < size; i++) {
+            if (table[i] != null) {
+                flag = false;
+                break;
+            }
+        }
+        if(flag)
+            System.out.println("HashTable is empty.");
+        else
+            System.out.println("HashTable is not empty.");
+    }
 }
