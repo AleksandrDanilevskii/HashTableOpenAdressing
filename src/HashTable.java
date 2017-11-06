@@ -117,9 +117,18 @@ public class HashTable {
         try {
             System.out.print("Enter size: ");
             size = scan.nextInt();
-            if (size <= 0) throw new Exception("Вы ввели неположительное число!");
-        } catch (Exception e) {
-            System.out.println("Вы ввели недопустимые числа!");
+
+            if(size <= 0){
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    System.out.println("You entered a non-positive number! Re-enter: ");
+                    return inputSize();
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println("You have entered invalid characters! Re-enter: ");
             return inputSize();
         }
         return size;
